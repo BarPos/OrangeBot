@@ -17,10 +17,15 @@
         {"name":"leaver-message"},
         {"name":"leaver-test"}
     ]},
+    {"name":"Minecraft", "content":[
+        {"name":"uuid"},
+        {"name":"skin"},
+        {"name":"server"}
+    ]},
     {"name":"Misc", "content":[
         {"name":"help"},
         {"name":"ping"},
-        {"name":"server"},
+        {"name":"discord"},
         {"name":"info"},
         {"name":"about"}
     ]}
