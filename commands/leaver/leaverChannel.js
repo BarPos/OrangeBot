@@ -1,7 +1,7 @@
 const settings = require('./../../settings');
 
 module.exports = {
-    commands: 'setwelcomechannel',
+    commands: 'leaver-channel',
     expectedArgs: '<channel id>',
     permissionError: 'You need admin permissions to run this command',
     minArgs: 1,
@@ -11,11 +11,11 @@ module.exports = {
         if(channel){
             var s = settings.GetGuildSettings(message.guild.id);
 
-            s.welcomer.channel = arguments[0];
+            s.leaver.channel = arguments[0];
 
             settings.SetGuildSettings(message.guild.id, s);
 
-            message.channel.send(`<#${arguments[0]}> set to be welcomer channel.`)
+            message.channel.send(`<#${arguments[0]}> set to be leaver channel.`)
         }else{
             message.channel.send(`\`${arguments[0]}\` is not valid channel id.`)
         }

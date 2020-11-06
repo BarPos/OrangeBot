@@ -3,8 +3,23 @@ const fs = require('fs')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
+const settings = require('./settings')
+
+module.exports = {client};
+
 const config = require('./config.json')
 const l = require('./logs');
+
+fs.readdir("./handlers/", (err, files) => {
+    if (err) l.error(err);
+    let jsfiles = files.filter(f => f.split(".").pop() === "js");
+    if (jsfiles.length <= 0) return console.log("There are no events to load...");
+    l.log(`Loading ${jsfiles.length} events...`);
+    jsfiles.forEach((f, i) => {
+        require(`./handlers/${f}`);
+        l.log(`${i + 1}: ${f} loaded!`);
+    });
+});
 
 client.on('ready', async () => {
     l.log(`Started as "${client.user.tag}"`)

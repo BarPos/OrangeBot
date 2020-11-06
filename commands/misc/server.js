@@ -20,10 +20,10 @@ module.exports = {
             .setTitle(name)
             .setThumbnail(icon)
             .addFields(
-                { name:`Region`, value:region },
-                { name:`Members`, value:memberCount },
-                { name:`Owner`, value:owner.user.tag },
-                { name:`AFK Timeout`, value:`${afkTimeout / 60} minute(s)` }
+                { name:`⬖ Region`, value:`\`\`\`${region}\`\`\`` },
+                { name:`⬖ Members`, value:`\`\`\`${memberCount}\`\`\`` },
+                { name:`⬖ Owner`, value:`\`\`\`${owner.user.tag}\`\`\`` },
+                { name:`⬖ AFK Timeout`, value:`\`\`\`${afkTimeout / 60} minute(s)\`\`\`` }
             )
             .setTimestamp()
 

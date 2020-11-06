@@ -4,12 +4,24 @@
         {"name":"kick"}
     ]},
     {"name":"Welcomer", "content":[
-        {"name":"enablewelcomer"},
-        {"name":"setwelcomechannel"}
+        {"name":"welcomer"},
+        {"name":"enable-welcomer"},
+        {"name":"welcomer-channel"},
+        {"name":"welcomer-message"},
+        {"name":"welcomer-test"}
+    ]},
+    {"name":"Leaver", "content":[
+        {"name":"leaver"},
+        {"name":"enable-leaver"},
+        {"name":"leaver-channel"},
+        {"name":"leaver-message"},
+        {"name":"leaver-test"}
     ]},
     {"name":"Misc", "content":[
         {"name":"help"},
         {"name":"ping"},
-        {"name":"server"}
+        {"name":"server"},
+        {"name":"info"},
+        {"name":"about"}
     ]}
 ]

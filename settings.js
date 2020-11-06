@@ -7,17 +7,28 @@ const defaultSettings =
         "enabled":false,
         "channel":"",
         "message":"Welcome %USER% to the %SERVER%"
+    },
+    "leaver":{
+        "enabled":false,
+        "channel":"",
+        "message":"%USER% left the %SERVER%"
     }
 }`;
 
 module.exports.SetGuildSettings = function (guildID, settings) {
     const location = path.join(__dirname, 'settings', `${guildID}.json`);
+    const sett = path.join(__dirname, 'settings');
 
     const jsonData = JSON.stringify(settings);
+
+    if(!fs.existsSync(sett)){
+        fs.mkdirSync(sett);
+    }
 
     if(fs.existsSync(location)){
         fs.unlinkSync(location);
     }
+
     fs.writeFileSync(location, jsonData);
 }
 
