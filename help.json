@@ -1,0 +1,15 @@
+[
+    {"name":"Moderation", "content":[
+        {"name":"ban"},
+        {"name":"kick"}
+    ]},
+    {"name":"Welcomer", "content":[
+        {"name":"enablewelcomer"},
+        {"name":"setwelcomechannel"}
+    ]},
+    {"name":"Misc", "content":[
+        {"name":"help"},
+        {"name":"ping"},
+        {"name":"server"}
+    ]}
+]
