@@ -28,6 +28,7 @@
         {"name":"ping"},
         {"name":"discord"},
         {"name":"info"},
-        {"name":"about"}
+        {"name":"about"},
+        {"name":"invite"}
     ]}
 ]
