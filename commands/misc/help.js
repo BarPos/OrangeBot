@@ -12,7 +12,7 @@ module.exports = {
         var embed = new Discord.MessageEmbed()
             .setColor(config.color)
             .setThumbnail()
-            .setDescription(`BOT IS IN BETA! ALL SERVER SETTINGS MAY RESET!`)
+            //.setDescription(`BOT IS IN BETA! ALL SERVER SETTINGS MAY RESET!`)
 
         for(const category of help){
             var commands = '';
