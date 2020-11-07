@@ -28,7 +28,7 @@ module.exports = {
                         response = JSON.parse(data);
                         const embed = new MessageEmbed()
                             .setColor(config.color)
-                            .setAuthor(`${response.name}'s skin:`)
+                            .setAuthor(`\`${response.name}\`'s skin:`)
                             .setImage(`https://visage.surgeplay.com/full/512/${response.id}`)
                             .setTimestamp();
 
@@ -37,7 +37,7 @@ module.exports = {
                     }catch(e){
                         const embed = new MessageEmbed()
                             .setColor(config.color)
-                            .setAuthor(`${arguments[0]} is not a valid Minecraft nickname`)
+                            .setAuthor(`\`${arguments[0]}\` is not a valid Minecraft nickname`)
                             .setTimestamp();
 
                         resultMessage.edit(`Done`)

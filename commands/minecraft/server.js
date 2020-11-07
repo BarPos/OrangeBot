@@ -29,7 +29,7 @@ module.exports = {
                     if(response.serverStatus == 'offline'){
                         const embed = new MessageEmbed()
                             .setColor(config.color)
-                            .setAuthor(`${arguments[0]} is offline`)
+                            .setAuthor(`\`${arguments[0]}\` is offline`)
                             .setTimestamp();
 
                         resultMessage.edit(`Done`)
@@ -39,6 +39,7 @@ module.exports = {
                     const embed = new MessageEmbed()
                         .setColor(config.color)
                         .addFields(
+                            {name: 'IP::', value: `\`${arguments[0]}\``},
                             {name: 'Version:', value: `\`${response.version}\``},
                             {name: 'Players:', value: `\`${response.players}/${response.maxplayers}\``},
                             {name: 'MOTD:', value: `\`\`\`${response.motd.text}\`\`\``},

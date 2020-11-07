@@ -1,7 +1,8 @@
 [
     {"name":"Moderation", "content":[
         {"name":"ban"},
-        {"name":"kick"}
+        {"name":"kick"},
+        {"name":"slowmode"}
     ]},
     {"name":"Welcomer", "content":[
         {"name":"welcomer"},
