@@ -10,7 +10,7 @@ module.exports = {client};
 const config = require('./config.json')
 const l = require('./logs');
 
-fs.readdir("./handlers/", (err, files) => {
+fs.readdir(path.join(__dirname, 'handlers'), (err, files) => {
     if (err) l.error(err);
     let jsfiles = files.filter(f => f.split(".").pop() === "js");
     if (jsfiles.length <= 0) return console.log("There are no events to load...");
