@@ -30,5 +30,8 @@
         {"name":"info"},
         {"name":"about"},
         {"name":"invite"}
+    ]},
+    {"name":"NSFW", "content":[
+        {"name":"pp"}
     ]}
 ]
