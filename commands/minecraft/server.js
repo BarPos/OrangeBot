@@ -39,7 +39,7 @@ module.exports = {
                     const embed = new MessageEmbed()
                         .setColor(config.color)
                         .addFields(
-                            {name: 'IP::', value: `\`${arguments[0]}\``},
+                            {name: 'IP:', value: `\`${arguments[0]}\``},
                             {name: 'Version:', value: `\`${response.version}\``},
                             {name: 'Players:', value: `\`${response.players}/${response.maxplayers}\``},
                             {name: 'MOTD:', value: `\`\`\`${response.motd.text}\`\`\``},

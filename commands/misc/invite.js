@@ -10,6 +10,7 @@ module.exports = {
     maxArgs: 0,
     callback: (message, arguments, text, client) => {
         const embed = new MessageEmbed()
+            .setColor(config.color)
             .setTitle(`Click here to invite me!`)
             .setURL(`https://discord.com/api/oauth2/authorize?client_id=769630010020593674&permissions=8&scope=bot`)
             .setTimestamp()

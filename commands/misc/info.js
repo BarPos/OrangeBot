@@ -1,5 +1,6 @@
 const {MessageEmbed} = require('discord.js');
 const {client} = require('../../index');
+const config = require('../../config.json')
 
 module.exports = {
     commands: ['info', 'about'],
@@ -9,6 +10,7 @@ module.exports = {
     maxArgs: 0,
     callback: (message, arguments, text, client) => {
         const embed = new MessageEmbed()
+            .setColor(config.color)
             .setAuthor(`Information about the ${client.user.username} Bot`, client.user.displayAvatarURL())
             .addFields(
                 {name: `⬖ Guild Count`, value: `\`\`\`${client.guilds.cache.size}\`\`\``, inline: true},

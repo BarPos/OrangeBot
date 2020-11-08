@@ -1,4 +1,6 @@
 const util = require('util');
+const {client} = require('../../index');
+const config = require('../../config.json')
 
 module.exports = {
     commands: 'eval',
@@ -12,7 +14,7 @@ module.exports = {
             const evaluated = eval(toEval);
 
             const evalEmbed = {
-                color: 0x0099ff,
+                color: config.color,
                 title: 'Code Evalutation',
                 description: 'Evaluates the code - for developers only',
                 fields: [
@@ -31,7 +33,7 @@ module.exports = {
 
         } catch(e) {
             const evalErrorEmbed = {
-                color: 0x0099ff,
+                color: config.color,
                 title: 'Code Evalutation',
                 description: 'Evaluates the code - for developers only',
                 fields: [

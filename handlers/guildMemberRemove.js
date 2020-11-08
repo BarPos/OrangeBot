@@ -14,7 +14,7 @@ client.on('guildMemberRemove', async (member) => {
         if(channel){
             var welcomeMessage = s.leaver.message;
 
-            welcomeMessage = welcomeMessage.replace('%USER%', `*${user.username}*`).replace('%SERVER%', `**${member.guild.name}**`);
+            welcomeMessage = welcomeMessage.replace('%USER%', `**${user.username}**`).replace('%SERVER%', `**${member.guild.name}**`);
 
             const embed = new Discord.MessageEmbed()
                 .setColor(config.color)

@@ -12,7 +12,7 @@ client.on('guildMemberAdd', async (member) => {
         if(channel){
             var welcomeMessage = s.welcomer.message;
 
-            welcomeMessage = welcomeMessage.replace('%USER%', `*${member.user.username}*`).replace('%SERVER%', `**${member.guild.name}**`);
+            welcomeMessage = welcomeMessage.replace('%USER%', `**${member.user.username}**`).replace('%SERVER%', `**${member.guild.name}**`);
 
             const embed = new Discord.MessageEmbed()
                 .setColor(config.color)
