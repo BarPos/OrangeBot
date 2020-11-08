@@ -73,7 +73,7 @@ module.exports = (client, commandOptions) => {
     }
 
     // Ensure the allowedUsers are in an array
-    if(allowedUsers === null){
+    if(allowedUsers !== null){
         if (allowedUsers.length) {
             if (typeof allowedUsers === 'string') {
                 allowedUsers = [allowedUsers]
@@ -104,7 +104,7 @@ module.exports = (client, commandOptions) => {
 
                 // Ensure the user has the required permissions
 
-                if(allowedUsers === null){
+                if(allowedUsers !== null){
                     const user = member.user;
                     if (!containsObject(user.id, allowedUsers)) {
                         return
