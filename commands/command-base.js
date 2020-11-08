@@ -107,6 +107,7 @@ module.exports = (client, commandOptions) => {
                 if(allowedUsers !== null){
                     const user = member.user;
                     if (!containsObject(user.id, allowedUsers)) {
+                        message.reply(`too bad i will not do that.`)
                         return
                     }
                 }
