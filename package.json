@@ -1,22 +1,23 @@
 {
-  "name": "new-bot",
+  "name": "orange-bot",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BarPosWasTaken/New-Bot.git"
+    "url": "git+https://github.com/BarPosWasTaken/OrangeBot.git"
   },
   "author": "BarPosWasTaken",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/BarPosWasTaken/New-Bot/issues"
+    "url": "https://github.com/BarPosWasTaken/OrangeBot/issues"
   },
-  "homepage": "https://github.com/BarPosWasTaken/New-Bot#readme",
+  "homepage": "https://github.com/BarPosWasTaken/OrangeBot#readme",
   "dependencies": {
     "discord.js": "^12.4.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
