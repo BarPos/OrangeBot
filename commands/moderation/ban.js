@@ -39,6 +39,6 @@ module.exports = {
         }
     },
     permissions: 'BAN_MEMBERS',
-    requiredRoles: [],
-    allowedUsers: ''
+    //requiredRoles: [],
+    //allowedUsers: ''
   }

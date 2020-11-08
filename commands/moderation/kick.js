@@ -39,6 +39,6 @@ module.exports = {
         }
     },
     permissions: 'KICK_MEMBERS',
-    requiredRoles: [],
-    allowedUsers: ''
+    //requiredRoles: [],
+    //allowedUsers: ''
   }
