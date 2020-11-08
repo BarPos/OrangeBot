@@ -52,7 +52,7 @@ module.exports = (client, commandOptions) => {
         maxArgs = null,
         permissions = [],
         requiredRoles = [],
-        allowedUsers = [],
+        allowedUsers = null,
         callback,
     } = commandOptions
 
@@ -101,9 +101,12 @@ module.exports = (client, commandOptions) => {
                 }
 
                 // Ensure the user has the required permissions
-                const user = member.user;
-                if (!containsObject(user.id, allowedUsers)) {
-                    return
+
+                if(allowedUsers !== null){
+                    const user = member.user;
+                    if (!containsObject(user.id, allowedUsers)) {
+                        return
+                    }
                 }
 
                 // Ensure the user has the required roles
