@@ -102,7 +102,7 @@ module.exports = (client, commandOptions) => {
 
                 // Ensure the user has the required permissions
 
-                if(allowedUsers !== null){
+                if(allowedUsers === null){
                     const user = member.user;
                     if (!containsObject(user.id, allowedUsers)) {
                         return
