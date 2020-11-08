@@ -73,9 +73,11 @@ module.exports = (client, commandOptions) => {
     }
 
     // Ensure the allowedUsers are in an array
-    if (allowedUsers.length) {
-        if (typeof allowedUsers === 'string') {
-            allowedUsers = [allowedUsers]
+    if(allowedUsers === null){
+        if (allowedUsers.length) {
+            if (typeof allowedUsers === 'string') {
+                allowedUsers = [allowedUsers]
+            }
         }
     }
 
