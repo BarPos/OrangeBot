@@ -101,11 +101,9 @@ module.exports = (client, commandOptions) => {
                 }
 
                 // Ensure the user has the required permissions
-                for (const allowedUser of allowedUsers) {
-                    const user = member;
-                    if (allowedUser != user.id) {
-                        return
-                    }
+                const user = member.user;
+                if (!containsObject(user.id, allowedUsers)) {
+                    return
                 }
 
                 // Ensure the user has the required roles
@@ -146,4 +144,15 @@ module.exports = (client, commandOptions) => {
             }
         }
     })
+}
+
+function containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i] === obj) {
+            return true;
+        }
+    }
+
+    return false;
 }
