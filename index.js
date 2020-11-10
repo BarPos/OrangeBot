@@ -10,6 +10,7 @@ module.exports = {client};
 const config = require('./config.json')
 const l = require('./logs');
 
+//require('./handlers/message')
 require('./handlers/guildMemberAdd')
 require('./handlers/guildMemberRemove')
 
