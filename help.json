@@ -19,6 +19,13 @@
         {"name":"leaver-message"},
         {"name":"leaver-test"}
     ]},
+    {"name":"Members", "content":[
+        {"name":"members"},
+        {"name":"enable-members"},
+        {"name":"members-channel"},
+        {"name":"members-message"},
+        {"name":"members-test"}
+    ]},
     {"name":"Minecraft", "content":[
         {"name":"uuid"},
         {"name":"skin"},

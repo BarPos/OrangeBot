@@ -2,6 +2,7 @@ const {client} = require('../index');
 const config = require("../config.json");
 const settings = require('../settings');
 const Discord = require('discord.js');
+const members = require('../other/updateMembers')
 
 client.on('guildMemberRemove', async (member) => {
     //console.log('member joined')
@@ -28,4 +29,6 @@ client.on('guildMemberRemove', async (member) => {
             settings.SetGuildSettings(member.guild.id, s);
         }
     }
+
+    members.UpdateMembers(member)
 });

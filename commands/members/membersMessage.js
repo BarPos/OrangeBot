@@ -1,8 +1,8 @@
 const settings = require('./../../settings');
 
 module.exports = {
-    commands: 'leaver-message',
-    expectedArgs: '<message> (%USER% will be replaced with username, %SERVER% will be replaced with server name) DEFAULT WELCOME MESSAGE `%USER% left the %SERVER%`',
+    commands: 'members-message',
+    expectedArgs: '<message> (%MEMBERS% will be replaced with members count) DEFAULT WELCOME MESSAGE `%MEMBERS% Members`',
     permissionError: 'You need admin permissions to run this command',
     minArgs: 1,
     maxArgs: null,
@@ -11,11 +11,11 @@ module.exports = {
 
         var s = settings.GetGuildSettings(message.guild.id);
 
-        s.welcomer.message = welcomeMessage;
+        s.members.message = welcomeMessage;
 
         settings.SetGuildSettings(message.guild.id, s);
 
-        message.channel.send(`Welcome message set to \`${s.welcomer.message}\``)
+        message.channel.send(`Welcome message set to \`${s.members.message}\``)
     },
     permissions: 'ADMINISTRATOR',
     //requiredRoles: [],

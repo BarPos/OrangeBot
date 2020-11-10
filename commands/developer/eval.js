@@ -9,9 +9,10 @@ module.exports = {
     minArgs: 1,
     //maxArgs: 0,
     callback: (message, arguments, text, client) => {
+        const toEval = text;
+        var evaluated;
         try {
-            const toEval = text;
-            const evaluated = eval(toEval);
+            evaluated = eval(toEval);
 
             const evalEmbed = {
                 color: config.color,

@@ -12,6 +12,11 @@ const defaultSettings =
         "enabled":false,
         "channel":"",
         "message":"%USER% left the %SERVER%"
+    },
+    "members":{
+        "enabled":false,
+        "channel":"",
+        "message":"%MEMBERS% Members"
     }
 }`;
 
