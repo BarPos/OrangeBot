@@ -24,7 +24,7 @@ module.exports = {
             embed.addFields({"name":`⬖ ${category.name}`, "value":commands})
         }
 
-        embed.addField(' ', 'For more support join [https://discord.gg/ccYm3JN](https://discord.gg/ccYm3JN)')
+        embed.addField('ㅤ', 'For more support join [https://discord.gg/ccYm3JN](https://discord.gg/ccYm3JN)')
 
         message.channel.send(embed);
     },
