@@ -13,7 +13,7 @@ module.exports = {
             .setColor(config.color)
             .setThumbnail()
             //.setDescription(`BOT IS IN BETA! ALL SERVER SETTINGS MAY RESET!`)
-            .setFooter(`For more support join https://discord.gg/ccYm3JN`)
+            .setFooter(`For more support join [https://discord.gg/ccYm3JN](https://discord.gg/ccYm3JN)`)
 
         for(const category of help){
             var commands = '';
