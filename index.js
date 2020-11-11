@@ -5,7 +5,7 @@ const client = new Discord.Client()
 
 const settings = require('./settings')
 
-module.exports = {client};
+module.exports = {client, Discord};
 
 const config = require('./config.json')
 const l = require('./logs');

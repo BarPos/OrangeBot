@@ -1,5 +1,7 @@
 const { prefix } = require('../config.json')
 const l = require('../logs');
+const { Discord } = require('../index')
+const config = require('../config.json')
 
 const validatePermissions = (permissions) => {
     const validPermissions = [
@@ -110,6 +112,18 @@ module.exports = (client, commandOptions) => {
                         message.reply(`too bad i will not do that.`)
                         return
                     }
+                }
+
+                const bot = message.guild.members.cache.get(client.user.id);
+                if(!bot.hasPermission('ADMINISTRATOR')){
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(config.color)
+                        .setTitle(`I'm missing admin permission!`)
+                        .setImage('https://i.imgur.com/sfHXq9b.png')
+                        .setFooter('Please contact server administrator and ask to fix it.')
+                        .setTimestamp()
+                    message.channel.send(embed)
+                    return
                 }
 
                 // Ensure the user has the required roles
