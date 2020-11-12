@@ -25,6 +25,7 @@ module.exports = {
         if(user.id == '437992463165161472') size = 12;
         if(user.id == '482864844823986177') size = 11;
         if(user.id == '407192478417027085') size = 1;
+        if(user.id == '484298675896713216') size = 1;
 
         var pp = '8';
 
