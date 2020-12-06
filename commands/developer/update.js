@@ -15,12 +15,15 @@ module.exports = {
             shell.exit(1);
             return
         }
+        await message.channel.send(`Downloading Update...`)
         if (shell.exec('git pull https://github.com/BarPos/OrangeBot.git').code !== 0) {
             shell.echo('Error: Git pull failed');
             shell.exit(1);
             return
+        }else{
+            await message.channel.send(`Update downloaded.`)
         }
-        message.channel.send('Restarting...');
+        await message.channel.send('Restarting...');
         shell.exec('pm2 restart orange');
     },
     //permissions: 'ADMINISTRATOR',
