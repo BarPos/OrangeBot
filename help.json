@@ -31,6 +31,7 @@
         {"name":"server"},
         {"name":"info"},
         {"name":"about"},
+        {"name":"status"},
         {"name":"invite"}
     ]},
     {"name":"NSFW", "content":[
