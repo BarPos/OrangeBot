@@ -4,7 +4,7 @@ const config = require('../../config.json');
 
 module.exports = {
     commands: ['mc-names'],
-    expectedArgs: `<uuid (get one using \`${config.prefix}uuid <nick>\`)>`,
+    expectedArgs: `<uuid (get one using \`${config.prefix}mc-uuid <nick>\`)>`,
     //permissionError: 'You need admin permissions to run this command',
     minArgs: 1,
     maxArgs: 1,
@@ -23,12 +23,12 @@ module.exports = {
                     //console.log(data)
 
                     // try{
-                        console.log(data.join(''))
+                        //console.log(data.join(''))
                         response = JSON.parse(data.join(''));
                         if(response.error){
                             const embed = new MessageEmbed()
                                 .setColor(config.color)
-                                .setAuthor(`\`${arguments[0]}\` is not a valid Minecraft uuid (get one using \`${config.prefix}uuid\`)`)
+                                .setAuthor(`\`${arguments[0]}\` is not a valid Minecraft uuid (get one using \`${config.prefix}mc-uuid\`)`)
                                 .setTimestamp();
 
                             resultMessage.edit(`Done`)
@@ -38,12 +38,16 @@ module.exports = {
 
                         const namesH = response.reverse()
 
-                        var fields;
+                        var fields = [];
 
-                        for(var i = 0; i < 5; i++){
-                            const n = namesH[i]
-                            fields[i] = { name: `Name: \`${n.name}\``, value: `Changed at: \`${n.changedToAt}\``, inline: false };
-                        }
+                        namesH.forEach((n, i) => {
+                            if(n.changedToAt){
+                                let date = new Date(n.changedToAt)
+                                fields[i] = { name: `Name: \`${n.name}\``, value: `Changed at: \`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}\``, inline: false };
+                            }else{
+                                fields[i] = { name: `Name: \`${n.name}\``, value: `Changed at: \`-\``, inline: false };
+                            }
+                        });
 
                         const embed = new MessageEmbed()
                             .setColor(config.color)
@@ -72,5 +76,5 @@ module.exports = {
     },
     //permissions: 'ADMINISTRATOR',
     //requiredRoles: [],
-    allowedUsers: '437992463165161472'
+    //allowedUsers: '437992463165161472'
   }

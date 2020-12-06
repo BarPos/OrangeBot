@@ -22,6 +22,7 @@
     {"name":"Minecraft", "content":[
         {"name":"mc-uuid"},
         {"name":"mc-skin"},
+        {"name":"mc-names"},
         {"name":"mc-server"}
     ]},
     {"name":"Misc", "content":[
