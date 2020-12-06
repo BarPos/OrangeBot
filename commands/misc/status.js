@@ -1,4 +1,6 @@
 const {client, Discord} = require('../../index');
+const config = require('../../config.json')
+const shell = require('shelljs')
 
 module.exports = {
     commands: 'status',
