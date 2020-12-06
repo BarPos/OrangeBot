@@ -3,6 +3,10 @@ const fs = require('fs')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
+// ? VERSION
+const version = 'stable-v1.4'
+// ? ###
+
 const mongoose = require('mongoose');
 
 const config = require('./config.json')
@@ -15,8 +19,6 @@ mongoose.connect(config.db,
     () => {
         console.log('Connected to db!');
     })
-
-const version = 'stable-v1.3'
 
 const settings = require('./settings')
 
