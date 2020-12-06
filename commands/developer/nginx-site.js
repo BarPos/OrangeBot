@@ -13,8 +13,8 @@ module.exports = {
         if(!arguments[1]) return message.channel.send(`Syntax error! Ussage: \`${config.prefix}nginx-site <start / stop> <name>\``);
         if(arguments[0]){
             if(arguments[0] == 'start'){
-                const s = await shell.exec(`mv /etc/nginx/sites-available/${arguments[1]} /etc/nginx/sites-enabled/${arguments[1]}`)
-                const ss = await shell.exec(`systemctl reload nginx`);
+                const s = shell.exec(`mv /etc/nginx/sites-available/${arguments[1]} /etc/nginx/sites-enabled/${arguments[1]}`)
+                const ss = shell.exec(`systemctl reload nginx`);
                 const embed = new Discord.MessageEmbed()
                     .setAuthor(`Starting Site`, client.user.displayAvatarURL())
                     .setColor(config.color)
@@ -22,10 +22,10 @@ module.exports = {
                     .setTimestamp()
                 return await message.channel.send(embed);
             }else if(arguments[0] == 'stop'){
-                const s = await shell.exec(`mv /etc/nginx/sites-enabled/${arguments[1]} /etc/nginx/sites-available/${arguments[1]}`)
-                const ss = await shell.exec(`systemctl reload nginx`);
+                const s = shell.exec(`mv /etc/nginx/sites-enabled/${arguments[1]} /etc/nginx/sites-available/${arguments[1]}`)
+                const ss = shell.exec(`systemctl reload nginx`);
                 const embed = new Discord.MessageEmbed()
-                    .setAuthor(`Starting Site`, client.user.displayAvatarURL())
+                    .setAuthor(`Stopping Site`, client.user.displayAvatarURL())
                     .setColor(config.color)
                     .setDescription(`${s.stdout} ${s.stderr} \n${ss.stdout} ${ss.stderr}`)
                     .setTimestamp()
