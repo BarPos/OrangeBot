@@ -16,12 +16,12 @@ module.exports = {
             return
         }
         await message.channel.send(`Downloading Update...`)
-        if (shell.exec('git pull https://github.com/BarPos/OrangeBot.git').code !== 0) {
-            shell.echo('Error: Git pull failed');
-            shell.exit(1);
+        const {stdout, stderr, code} = shell.exec('git pull https://github.com/BarPos/OrangeBot.git');
+        if (stderr) {
+            await message.channel.send(`${stderr.slice(41)}${stdout}`);
             return
         }else{
-            await message.channel.send(`Update downloaded.`)
+            await message.channel.send(`${stdout}`);
         }
         await message.channel.send('Restarting...');
         shell.exec('pm2 restart orange');
