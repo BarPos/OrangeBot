@@ -1,4 +1,4 @@
-const { Discord } = require("../../index")
+const {client, Discord} = require('../../index');
 
 module.exports = {
     commands: 'status',
