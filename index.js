@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 
 // ? VERSION
-const version = 'stable-v1.4.8'
+const version = 'stable-v1.4.8.1'
 // ? ###
 
 const l = require('./logs');
