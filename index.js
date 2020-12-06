@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 
 // ? VERSION
-const version = 'stable-v1.4.3'
+const version = 'stable-v1.4.5'
 // ? ###
 
 const mongoose = require('mongoose');
