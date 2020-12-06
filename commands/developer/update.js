@@ -26,7 +26,11 @@ module.exports = {
             .setColor(config.color)
             .setDescription(stdout)
             .setTimestamp()
-        await m.edit(embed);
+        await m.edit(embed)
+        if(code !== 0){
+            return;
+        }
+        // }
         await message.channel.send('Restarting...');
         shell.exec('pm2 restart orange');
     },
