@@ -1,5 +1,5 @@
 const util = require('util');
-const {client} = require('../../index');
+const {client, Discord} = require('../../index');
 const config = require('../../config.json')
 const shell = require('shelljs')
 
@@ -15,13 +15,18 @@ module.exports = {
             shell.exit(1);
             return
         }
-        await message.channel.send(`Downloading Update...`)
+        const m = await message.channel.send(`Downloading Update...`)
         const {stdout, stderr, code} = shell.exec('git pull https://github.com/BarPos/OrangeBot.git');
         // if (stderr) {
         //     await message.channel.send(`${stderr.slice(41)}${stdout}`);
         //     return
         // }else{
-        await message.channel.send(`${stdout}`);
+        const embed = new Discord.MessageEmbed()
+            .setTitle(`Update`)
+            .setColor(config.color)
+            .setDescription(stdout)
+            .setTimestamp()
+        await m.edit(embed);
         if(code !== 0){
             return;
         }
