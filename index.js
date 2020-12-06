@@ -8,7 +8,7 @@ const client = new Discord.Client()
 //ex();
 
 // ? VERSION
-const version = 'stable-v1.4.8.7'
+const version = 'stable-v1.4.8.8'
 // ? ###
 
 const l = require('./logs');
