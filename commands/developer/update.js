@@ -31,6 +31,8 @@ module.exports = {
             return;
         }
         // }
+        await message.channel.send('Installing dependencies...');
+        shell.exec('npm i');
         await message.channel.send('Restarting...');
         shell.exec('pm2 restart orange');
     },
