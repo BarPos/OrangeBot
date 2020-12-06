@@ -36,7 +36,7 @@ module.exports = {
         const embedd = new Discord.MessageEmbed()
             .setAuthor(`Dependencies`, client.user.displayAvatarURL())
             .setColor(config.color)
-            .setDescription(stdoutt)
+            .setDescription(`${stdoutt} ${stderrr}`)
             .setTimestamp()
         await mm.edit(embed)
         if(codee !== 0){
