@@ -122,7 +122,7 @@ module.exports = (client, commandOptions) => {
                         const embed = new Discord.MessageEmbed()
                             .setColor(config.color)
                             .setTitle(`I'm missing \`${p}\` permission!`)
-                            .setDescription('You have to give me this permission to do that. You can give me admin perms so you would not need to do this in the future (tutorial below).')
+                            .setDescription('You have to give me this permission to do that. You can give me admin perms so you don\'t need to do this in the future (tutorial below).')
                             .setImage('https://i.imgur.com/sfHXq9b.png')
                             .setFooter('Please contact server administrator and ask to fix it.')
                             .setTimestamp()
