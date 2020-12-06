@@ -7,6 +7,8 @@ const client = new Discord.Client()
 const version = 'stable-v1.4.6'
 // ? ###
 
+const l = require('./logs');
+
 const mongoose = require('mongoose');
 
 const config = require('./config.json')
@@ -17,14 +19,12 @@ mongoose.connect(config.db,
         useUnifiedTopology: true
     },
     () => {
-        console.log('Connected to db!');
+        l.log('Connected to db!');
     })
 
 const settings = require('./settings')
 
-module.exports = {client, Discord};
-
-const l = require('./logs');
+module.exports = {client, Discord, version};
 
 //require('./handlers/message')
 require('./handlers/guildMemberAdd')
