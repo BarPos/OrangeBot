@@ -15,7 +15,7 @@ module.exports = {
             shell.exit(1);
             return
         }
-        if (shell.exec('git pull https://github.com/BarPos/OrangeBot.git"').code !== 0) {
+        if (shell.exec('git pull https://github.com/BarPos/OrangeBot.git').code !== 0) {
             shell.echo('Error: Git pull failed');
             shell.exit(1);
             return
