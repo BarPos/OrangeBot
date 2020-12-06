@@ -1,4 +1,7 @@
 {
     "token":"",
-    "prefix":"?"
+    "prefix":"?",
+    "db":" MONGODB CONNECTION STRING ",
+    "name":"Orange",
+    "color":"#ffa600"
 }

@@ -8,12 +8,12 @@ client.on('guildMemberRemove', async (member) => {
     //console.log('member joined')
     const user = member.user;
 
-    const s = settings.GetGuildSettings(member.guild.id)
+    const s = await settings.GetLeaver(member.guild.id)
 
-    if(s.welcomer.enabled == true){
-        const channel = member.guild.channels.cache.get(s.leaver.channel);
+    if(s.enabled == true){
+        const channel = member.guild.channels.cache.get(s.channel);
         if(channel){
-            var welcomeMessage = s.leaver.message;
+            var welcomeMessage = s.message;
 
             welcomeMessage = welcomeMessage.replace('%USER%', `**${user.username}**`).replace('%SERVER%', `**${member.guild.name}**`);
 
@@ -25,8 +25,8 @@ client.on('guildMemberRemove', async (member) => {
 
             channel.send(embed);
         }else{
-            s.leaver.enabled = false;
-            settings.SetGuildSettings(member.guild.id, s);
+            s.enabled = false;
+            settings.SaveLeaver(member.guild.id, s.enabled, s.channel, s.message);
         }
     }
 

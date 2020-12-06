@@ -3,7 +3,7 @@ const {MessageEmbed} = require('discord.js');
 const config = require('../../config.json');
 
 module.exports = {
-    commands: ['skin'],
+    commands: ['mc-skin'],
     expectedArgs: '<nick>',
     //permissionError: 'You need admin permissions to run this command',
     minArgs: 1,
@@ -28,7 +28,7 @@ module.exports = {
                         response = JSON.parse(data);
                         const embed = new MessageEmbed()
                             .setColor(config.color)
-                            .setAuthor(`\`${response.name}\`'s skin:`)
+                            .setAuthor(`${response.name}'s skin:`)
                             .setImage(`https://visage.surgeplay.com/full/512/${response.id}`)
                             .setTimestamp();
 

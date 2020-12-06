@@ -16,7 +16,8 @@
   },
   "homepage": "https://github.com/BarPosWasTaken/OrangeBot#readme",
   "dependencies": {
-    "discord.js": "^12.4.1"
+    "discord.js": "^12.4.1",
+    "mongoose": "^5.11.4"
   },
   "devDependencies": {},
   "description": ""

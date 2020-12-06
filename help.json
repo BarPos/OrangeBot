@@ -7,34 +7,27 @@
     ]},
     {"name":"Welcomer", "content":[
         {"name":"welcomer"},
-        {"name":"enable-welcomer"},
-        {"name":"welcomer-channel"},
-        {"name":"welcomer-message"},
-        {"name":"welcomer-test"}
+        {"name":"w-enable"},
+        {"name":"w-channel"},
+        {"name":"w-message"},
+        {"name":"w-test"}
     ]},
     {"name":"Leaver", "content":[
         {"name":"leaver"},
-        {"name":"enable-leaver"},
-        {"name":"leaver-channel"},
-        {"name":"leaver-message"},
-        {"name":"leaver-test"}
-    ]},
-    {"name":"Members", "content":[
-        {"name":"members"},
-        {"name":"enable-members"},
-        {"name":"members-channel"},
-        {"name":"members-message"},
-        {"name":"members-test"}
+        {"name":"l-enable"},
+        {"name":"l-channel"},
+        {"name":"l-message"},
+        {"name":"l-test"}
     ]},
     {"name":"Minecraft", "content":[
-        {"name":"uuid"},
-        {"name":"skin"},
-        {"name":"server"}
+        {"name":"mc-uuid"},
+        {"name":"mc-skin"},
+        {"name":"mc-server"}
     ]},
     {"name":"Misc", "content":[
         {"name":"help"},
         {"name":"ping"},
-        {"name":"discord"},
+        {"name":"server"},
         {"name":"info"},
         {"name":"about"},
         {"name":"invite"}

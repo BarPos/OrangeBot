@@ -8,16 +8,16 @@ module.exports = {
     permissionError: 'You need admin permissions to run this command',
     minArgs: 0,
     maxArgs: 0,
-    callback: (message, arguments, text, client) => {
-        const s = settings.GetGuildSettings(message.guild.id);
+    callback: async (message, arguments, text, client) => {
+        const s = await settings.GetLeaver(message.guild.id);
 
         const embed = new Discord.MessageEmbed()
             .setColor(config.color)
             .setTitle(`Leaver`)
             .addFields(
-                { name:`⬖ Enabled`, value:`\`\`\`${s.leaver.enabled}\`\`\`` },
-                { name:`⬖ Channel`, value:`<#${s.leaver.channel}>` },
-                { name:`⬖ Message`, value:`\`\`\`${s.leaver.message}\`\`\`` }
+                { name:`⬖ Enabled`, value:`\`\`\`${s.enabled}\`\`\`` },
+                { name:`⬖ Channel`, value:`<#${s.channel}>` },
+                { name:`⬖ Message`, value:`\`\`\`${s.message}\`\`\`` }
             )
             .setTimestamp()
 

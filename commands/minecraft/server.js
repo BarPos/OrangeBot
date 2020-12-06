@@ -3,7 +3,7 @@ const {MessageEmbed} = require('discord.js');
 const config = require('../../config.json');
 
 module.exports = {
-    commands: ['server'],
+    commands: ['mc-server'],
     expectedArgs: '<ip>',
     //permissionError: 'You need admin permissions to run this command',
     minArgs: 1,
@@ -39,10 +39,10 @@ module.exports = {
                     const embed = new MessageEmbed()
                         .setColor(config.color)
                         .addFields(
-                            {name: 'IP:', value: `\`${arguments[0]}\``},
-                            {name: 'Version:', value: `\`${response.version}\``},
-                            {name: 'Players:', value: `\`${response.players}/${response.maxplayers}\``},
-                            {name: 'MOTD:', value: `\`\`\`${response.motd.text}\`\`\``},
+                            {name: 'IP', value: `\`${arguments[0]}\``},
+                            {name: 'Version', value: `\`${response.version}\``},
+                            {name: 'Players', value: `\`${response.players}/${response.maxplayers}\``},
+                            {name: 'MOTD', value: `\`\`\`${response.motd.text}\`\`\``},
                         )
                         .setTimestamp();
 

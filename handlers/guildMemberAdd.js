@@ -6,12 +6,12 @@ const members = require('../other/updateMembers')
 
 client.on('guildMemberAdd', async (member) => {
     //console.log('member joined')
-    const s = settings.GetGuildSettings(member.guild.id)
+    const s = await settings.GetWelcomer(member.guild.id)
 
-    if(s.welcomer.enabled == true){
-        const channel = member.guild.channels.cache.get(s.welcomer.channel);
+    if(s.enabled == true){
+        const channel = member.guild.channels.cache.get(s.channel);
         if(channel){
-            var welcomeMessage = s.welcomer.message;
+            var welcomeMessage = s.message;
 
             welcomeMessage = welcomeMessage.replace('%USER%', `**${member.user.username}**`).replace('%SERVER%', `**${member.guild.name}**`);
 
@@ -24,7 +24,7 @@ client.on('guildMemberAdd', async (member) => {
             channel.send(embed);
         }else{
             s.welcomer.enabled = false;
-            settings.SetGuildSettings(member.guild.id, s);
+            await settings.SaveWelcomer(member.guild.id, s.enabled, s.channel, s.message);
         }
     }
 

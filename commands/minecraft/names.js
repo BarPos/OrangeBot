@@ -3,7 +3,7 @@ const {MessageEmbed} = require('discord.js');
 const config = require('../../config.json');
 
 module.exports = {
-    commands: ['names'],
+    commands: ['mc-names'],
     expectedArgs: `<uuid (get one using \`${config.prefix}uuid <nick>\`)>`,
     //permissionError: 'You need admin permissions to run this command',
     minArgs: 1,

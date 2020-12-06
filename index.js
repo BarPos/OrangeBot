@@ -3,11 +3,25 @@ const fs = require('fs')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
+const mongoose = require('mongoose');
+
+const config = require('./config.json')
+
+mongoose.connect(config.db,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    },
+    () => {
+        console.log('Connected to db!');
+    })
+
+const version = 'stable-v1.3'
+
 const settings = require('./settings')
 
 module.exports = {client, Discord};
 
-const config = require('./config.json')
 const l = require('./logs');
 
 //require('./handlers/message')
@@ -37,9 +51,17 @@ client.on('ready', async () => {
 
     client.user.setPresence({
         activity: {
-            name: `${config.prefix}help for help`,
+            name: `${config.prefix}help | ${version}`,
         },
     });
+
+    setInterval(() => {
+        client.user.setPresence({
+            activity: {
+                name: `${config.prefix}help | ${version}`,
+            },
+        });
+    }, 1000*60*30)
 })
 
 client.login(config.token)

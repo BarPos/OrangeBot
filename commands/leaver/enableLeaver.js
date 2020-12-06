@@ -2,37 +2,37 @@ const settings = require('../../settings');
 const config = require('../../config.json');
 
 module.exports = {
-    commands: 'enable-leaver',
+    commands: 'l-enable',
     expectedArgs: '<true / false>',
     permissionError: 'You need admin permissions to run this command',
     minArgs: 1,
     maxArgs: 1,
-    callback: (message, arguments, text, client) => {
+    callback: async (message, arguments, text, client) => {
         if(arguments[0] == 'true'){
-            var s = settings.GetGuildSettings(message.guild.id);
+            var s = await settings.GetLeaver(message.guild.id);
 
-            s.leaver.enabled = true;
+            s.enabled = true;
 
-            const channel = message.guild.channels.cache.get(s.leaver.channel)
+            const channel = message.guild.channels.cache.get(s.channel)
 
             if(!channel){
-                message.channel.send(`Please choose leaver channel using \`${config.prefix}leaver-channel <channel id>\`.`)
+                message.channel.send(`Please choose leaver channel using \`${config.prefix}l-channel <channel id>\`.`)
                 return
             }
 
-            settings.SetGuildSettings(message.guild.id, s);
+            settings.SaveLeaver(message.guild.id, s.enabled, s.channel, s.message);
 
             message.channel.send(`Leaver enabled.`)
         }else if(arguments[0] == 'false'){
-            var s = settings.GetGuildSettings(message.guild.id);
+            var s = await settings.GetLeaver(message.guild.id);
 
             s.leaver.enabled = false;
 
-            settings.SetGuildSettings(message.guild.id, s);
+            settings.SaveLeaver(message.guild.id, s.enabled, s.channel, s.message);
 
             message.channel.send(`Leaver disabled.`)
         }else{
-            message.channel.send(`Syntax error! Ussage: \`${config.prefix}enable-leaver <true / false>\``)
+            message.channel.send(`Syntax error! Ussage: \`${config.prefix}l-enable <true / false>\``)
         }
     },
     permissions: 'ADMINISTRATOR',
