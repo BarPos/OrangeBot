@@ -17,12 +17,15 @@ module.exports = {
         }
         await message.channel.send(`Downloading Update...`)
         const {stdout, stderr, code} = shell.exec('git pull https://github.com/BarPos/OrangeBot.git');
-        if (stderr) {
-            await message.channel.send(`${stderr.slice(41)}${stdout}`);
-            return
-        }else{
-            await message.channel.send(`${stdout}`);
+        // if (stderr) {
+        //     await message.channel.send(`${stderr.slice(41)}${stdout}`);
+        //     return
+        // }else{
+        await message.channel.send(`${stdout}`);
+        if(code !== 0){
+            return;
         }
+        // }
         await message.channel.send('Restarting...');
         shell.exec('pm2 restart orange');
     },
