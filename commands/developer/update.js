@@ -22,7 +22,7 @@ module.exports = {
         //     return
         // }else{
         const embed = new Discord.MessageEmbed()
-            .setTitle(`Update`)
+        .setAuthor(`Update`, client.user.displayAvatarURL())
             .setColor(config.color)
             .setDescription(stdout)
             .setTimestamp()
