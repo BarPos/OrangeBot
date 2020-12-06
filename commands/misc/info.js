@@ -18,6 +18,9 @@ module.exports = {
                 {name: `⬖ Channel Count`, value: `\`\`\`${client.channels.cache.size}\`\`\``, inline: true},
                 {name: `⬖ Version`, value: `\`\`\`${version}\`\`\``, inline: true},
                 {name: `⬖ Author`, value: `\`\`\`@BarPos.exe#3404\`\`\``, inline: false},
+                {name: `⬖ Social`, value: `[Twitter](https://twitter.com/OrangeBot_)`, inline: true},
+                {name: `ㅤ`, value: `[Developer's Twitter](https://twitter.com/BarPosWasTaken)`, inline: true},
+                {name: `ㅤ`, value: `[Discord](https://discord.gg/ccYm3JN)`, inline: true},
             )
 
         message.channel.send(embed);

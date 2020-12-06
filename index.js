@@ -3,8 +3,12 @@ const fs = require('fs')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 
+const ex = require('./express');
+
+ex();
+
 // ? VERSION
-const version = 'stable-v1.4.8.6'
+const version = 'stable-v1.4.8.7'
 // ? ###
 
 const l = require('./logs');
