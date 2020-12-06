@@ -7,8 +7,8 @@ module.exports = {
     commands: 'nginx-site',
     expectedArgs: '<start / stop> <name>',
     permissionError: 'You need admin permissions to run this command',
-    minArgs: 0,
-    maxArgs: 0,
+    minArgs: 2,
+    maxArgs: 2,
     callback: async (message, arguments, text, client) => {
         if(!arguments[1]) return message.channel.send(`Syntax error! Ussage: \`${config.prefix}nginx-site <start / stop> <name>\``);
         if(arguments[0]){
