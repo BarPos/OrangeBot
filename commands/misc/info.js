@@ -1,6 +1,7 @@
 const {MessageEmbed} = require('discord.js');
 const {client} = require('../../index');
 const config = require('../../config.json')
+const {version} = require('../../index');
 
 module.exports = {
     commands: ['info', 'about'],
@@ -16,6 +17,7 @@ module.exports = {
                 {name: `⬖ Guild Count`, value: `\`\`\`${client.guilds.cache.size}\`\`\``, inline: true},
                 {name: `⬖ User Count`, value: `\`\`\`${client.users.cache.size}\`\`\``, inline: true},
                 {name: `⬖ Channel Count`, value: `\`\`\`${client.channels.cache.size}\`\`\``, inline: true},
+                {name: `⬖ Version`, value: `\`\`\`${index}\`\`\``, inline: true},
                 {name: `⬖ Author`, value: `\`\`\`@BarPos.exe#3404\`\`\``, inline: false},
             )
 
