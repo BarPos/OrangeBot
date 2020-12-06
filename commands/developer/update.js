@@ -32,16 +32,13 @@ module.exports = {
         }
         // }
         const mm = await message.channel.send('Installing dependencies...');
-        const {stdoutt, stderrr, codee} = shell.exec('npm i');
+        const npm = shell.exec('npm i');
         const embedd = new Discord.MessageEmbed()
             .setAuthor(`Dependencies`, client.user.displayAvatarURL())
             .setColor(config.color)
-            .setDescription(`${stdoutt} ${stderrr}`)
+            .setDescription(`${npm.stdout} ${npm.stderr}`)
             .setTimestamp()
         await mm.edit(embed)
-        if(codee !== 0){
-            return;
-        }
         await message.channel.send('Restarting...');
         shell.exec('pm2 restart orange');
     },
