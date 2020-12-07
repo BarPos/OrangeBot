@@ -1,7 +1,8 @@
 const util = require('util');
-const {client, Discord} = require('../../index');
+const {emoji, Discord} = require('../../index');
 const config = require('../../config.json')
-const shell = require('shelljs')
+const shell = require('shelljs');
+const { update } = require('../../models/Leaver');
 
 module.exports = {
     commands: 'update',
@@ -15,36 +16,49 @@ module.exports = {
             shell.exit(1);
             return
         }
-        const m = await message.channel.send(`Downloading Update...`)
+
+        var updateText = `Cheking For Updates...\n\n`;
+
+        var embed = new Discord.MessageEmbed()
+            .setAuthor(`${emoji('785554412848152667')} Update`, client.user.displayAvatarURL())
+            .setColor(config.color)
+            .setDescription(updateText)
+            .setTimestamp()
+        const m = await message.channel.send(embed)
         const {stdout, stderr, code} = shell.exec('git pull https://github.com/BarPos/OrangeBot.git');
         // if (stderr) {
         //     await message.channel.send(`${stderr.slice(41)}${stdout}`);
         //     return
         // }else{
-        const embed = new Discord.MessageEmbed()
-            .setAuthor(`Update`, client.user.displayAvatarURL())
-            .setColor(config.color)
-            .setDescription(stdout)
-            .setTimestamp()
+
+        updateText = updateText + stdout;
+
+        embed.setDescription(updateText);
+
         await m.edit(embed)
         if(code !== 0){
             return;
         }
         // }
-        const mm = await message.channel.send('Installing dependencies...');
+
+        updateText = updateText + `\n\nInstalling Dependencies...\n\n`
         const npm = shell.exec('npm i');
-        const embedd = new Discord.MessageEmbed()
-            .setAuthor(`Dependencies`, client.user.displayAvatarURL())
-            .setColor(config.color)
-            .setDescription(`${npm.stdout} ${npm.stderr}`)
-            .setTimestamp()
-        await mm.edit(embedd)
+
+        updateText = updateText + `${npm.stdout} ${npm.stderr}\n\n`
+
+        embed.setDescription(updateText);
+
+        await m.edit(embed)
 
         if(npm.code !== 0){
             return
         }
 
-        await message.channel.send('Restarting...');
+        updateText = updateText + `Restarting...`
+
+        embed.setDescription(updateText);
+
+        await m.edit(embed)
         shell.exec('pm2 restart orange');
     },
     //permissions: 'ADMINISTRATOR',

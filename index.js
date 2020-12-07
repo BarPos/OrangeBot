@@ -30,6 +30,10 @@ const settings = require('./settings')
 
 module.exports = {client, Discord, version};
 
+module.exports.emoji = (id) => {
+    return client.guilds.cache.get('785550445653131295').emojis.cache.get(id).toString();
+};
+
 //require('./handlers/message')
 require('./handlers/guildMemberAdd')
 require('./handlers/guildMemberRemove')

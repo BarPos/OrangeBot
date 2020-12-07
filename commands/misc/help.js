@@ -1,6 +1,6 @@
 const help = require('./../../help.json');
 const config = require('./../../config.json');
-const Discord = require('discord.js');
+const { Discord, emoji}  = require('../../index');
 
 module.exports = {
     commands: 'help',
@@ -11,6 +11,7 @@ module.exports = {
     callback: (message, arguments, text, client) => {
         var embed = new Discord.MessageEmbed()
             .setColor(config.color)
+            .setTitle(`${emoji('785551105718616094')} Orange's Help`)
             .setThumbnail()
             //.setDescription(`BOT IS IN BETA! ALL SERVER SETTINGS MAY RESET!`)
 

@@ -1,5 +1,5 @@
 const {MessageEmbed} = require('discord.js');
-const {client, version} = require('../../index');
+const {client, version, emoji} = require('../../index');
 const config = require('../../config.json')
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     callback: (message, arguments, text, client) => {
         const embed = new MessageEmbed()
             .setColor(config.color)
-            .setAuthor(`Information about the ${client.user.username} Bot`, client.user.displayAvatarURL())
+            .setAuthor(`Information about the ${emoji('785551105718616094')} ${client.user.username} Bot`, client.user.displayAvatarURL())
             .addFields(
                 {name: `⬖ Guild Count`, value: `\`\`\`${client.guilds.cache.size}\`\`\``, inline: true},
                 {name: `⬖ User Count`, value: `\`\`\`${client.users.cache.size}\`\`\``, inline: true},
