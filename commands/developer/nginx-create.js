@@ -70,14 +70,14 @@ server {
 
         const genCert = shell.exec(`acme.sh --issue --standalone -d "${arguments[0]}" --dns dns_cf \
         --key-file /etc/letsencrypt/live/${arguments[0]}/privkey.pem \
-        --fullchain-file /etc/letsencrypt/live/${arguments[0]}/fullchain.pem `)
+        --fullchain-file /etc/letsencrypt/live/${arguments[0]}/fullchain.pem --force`)
 
         const save = shell.exec(`echo '${c}' >> /etc/nginx/sites-enabled/${arguments[0]}`)
         const ss = shell.exec(`systemctl start nginx`);
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Creating Site`, client.user.displayAvatarURL())
             .setColor(config.color)
-            .setDescription(`${ss.stdout} ${ss.stderr}`)
+            .setDescription(`${genCert.stdout}\n\n${ss.stdout} ${ss.stderr}`)
             .setTimestamp()
 
         return await message.channel.send(embed);
