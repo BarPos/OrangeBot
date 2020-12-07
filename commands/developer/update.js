@@ -86,13 +86,9 @@ module.exports = {
 
         // (/(\r\n|\n|\r)/gm,"<br>")
 
-        fs.writeFile(p, save, (err) => {
+        await fs.writeFileSync(p, save, (err) => {
             if (err) return console.log(err);
         });
-
-        fs.readFile(p, (data) => {
-            console.log(data)
-        })
 
         shell.exec('pm2 restart orange');
     },
