@@ -8,7 +8,7 @@ const ex = require('./express');
 ex();
 
 // ? VERSION
-const version = 'stable-v1.4.9.5'
+const version = 'stable-v1.4.9.7'
 // ? ###
 
 const l = require('./logs');
