@@ -17,10 +17,10 @@ module.exports = {
             return
         }
 
-        var updateText = `Cheking For Updates...\n\n`;
+        var updateText = `ㅤ\n${emoji('785598436854464596')} **Cheking For Updates...**`;
 
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`Update`, client.user.displayAvatarURL())
+            .setTitle(`${emoji('785598322768871495')} Update`)
             .setColor(config.color)
             .setDescription(updateText)
             .setTimestamp()
@@ -31,7 +31,7 @@ module.exports = {
         //     return
         // }else{
 
-        updateText = updateText + stdout;
+        updateText = updateText + `\`\`\`${stdout}\`\`\``;
 
         embed.setDescription(updateText);
 
@@ -41,10 +41,15 @@ module.exports = {
         }
         // }
 
-        updateText = updateText + `\n\nInstalling Dependencies...\n\n`
+        updateText = updateText + `\n\n${emoji('785598364095741972')} **Installing Dependencies...**`
+
+        embed.setDescription(updateText);
+
+        await m.edit(embed)
+
         const npm = shell.exec('npm i');
 
-        updateText = updateText + `${npm.stdout} ${npm.stderr}\n`
+        updateText = updateText + `\`\`\`${npm.stdout}\`\`\``
 
         embed.setDescription(updateText);
 
@@ -54,7 +59,7 @@ module.exports = {
             return
         }
 
-        updateText = updateText + `Restarting...`
+        updateText = updateText + `\n\n${emoji('785602068538195988')} **Restarting...**`
 
         embed.setDescription(updateText);
 

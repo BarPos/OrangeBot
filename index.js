@@ -8,7 +8,8 @@ const ex = require('./express');
 ex();
 
 // ? VERSION
-const version = 'stable-v1.4.9.8'
+const gen = 'stable' // stable, beta
+const version = `${gen}-v1.4.9.8`
 // ? ###
 
 const l = require('./logs');
