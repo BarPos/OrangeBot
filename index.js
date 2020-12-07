@@ -9,7 +9,7 @@ ex();
 
 // ? VERSION
 const gen = 'stable' // stable, beta
-const version = `${gen}-v1.4.10`
+const version = `${gen}-v1.4.11`
 // ? ###
 
 const l = require('./logs');
