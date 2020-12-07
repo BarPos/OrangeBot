@@ -36,7 +36,7 @@ module.exports = {
         embed.setDescription(updateText);
 
         await m.edit(embed)
-        if(code !== 0){
+        if(stdout == 'Already up to date.'){
             return;
         }
         // }
