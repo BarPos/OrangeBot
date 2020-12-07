@@ -69,7 +69,11 @@ module.exports = {
         const p = path.join(__dirname, '..', '..', 'update.json');
         //console.log(p)
         if(fs.existsSync(p)){
-            fs.unlink(p)
+            fs.unlink(p, (err) => {
+                if (err) {
+                  console.error(err)
+                }
+            })
         }
 
         const save = `{
