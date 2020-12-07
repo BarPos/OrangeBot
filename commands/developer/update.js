@@ -1,8 +1,9 @@
 const util = require('util');
-const {emoji, Discord} = require('../../index');
+const {emoji, Discord, version} = require('../../index');
 const config = require('../../config.json')
 const shell = require('shelljs');
-const { update } = require('../../models/Leaver');
+const fs = require('fs')
+const path = require('path');
 
 module.exports = {
     commands: 'update',
@@ -64,6 +65,27 @@ module.exports = {
         embed.setDescription(updateText);
 
         await m.edit(embed)
+
+        const p = path.join(__dirname, '..', '..', 'update.json');
+        //console.log(p)
+        if(fs.existsSync(p)){
+            fs.unlink(p)
+        }
+
+        const save = `{
+            "oldVer":"${version}",
+            "channel":"${m.channel.id}",
+            "guild":"${m.guild.id}",
+            "message":"${m.id}",
+            "log":"${updateText.replace(/(\r\n|\n|\r)/gm,`<br>`)}"
+        }`
+
+        // (/(\r\n|\n|\r)/gm,"<br>")
+
+        fs.writeFile(p, save, (err) => {
+            if (err) return console.log(err);
+        });
+
         shell.exec('pm2 restart orange');
     },
     //permissions: 'ADMINISTRATOR',
