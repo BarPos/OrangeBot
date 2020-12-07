@@ -20,7 +20,7 @@ module.exports = {
         var updateText = `Cheking For Updates...\n\n`;
 
         var embed = new Discord.MessageEmbed()
-            .setAuthor(`${emoji('785554412848152667')} Update`, client.user.displayAvatarURL())
+            .setAuthor(`Update`, client.user.displayAvatarURL())
             .setColor(config.color)
             .setDescription(updateText)
             .setTimestamp()
@@ -44,7 +44,7 @@ module.exports = {
         updateText = updateText + `\n\nInstalling Dependencies...\n\n`
         const npm = shell.exec('npm i');
 
-        updateText = updateText + `${npm.stdout} ${npm.stderr}\n\n`
+        updateText = updateText + `${npm.stdout} ${npm.stderr}\n`
 
         embed.setDescription(updateText);
 
