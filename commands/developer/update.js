@@ -90,6 +90,10 @@ module.exports = {
             if (err) return console.log(err);
         });
 
+        fs.readFile(p, (data) => {
+            console.log(data)
+        })
+
         shell.exec('pm2 restart orange');
     },
     //permissions: 'ADMINISTRATOR',
