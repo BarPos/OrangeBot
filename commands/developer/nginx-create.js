@@ -68,7 +68,7 @@ server {
 
         shell.exec(`systemctl stop nginx`);
 
-        const genCert = shell.exec(`acme.sh --issue --standalone -d "${arguments[0]}" --dns dns_cf \
+        const genCert = await shell.exec(`acme.sh --issue --standalone -d "${arguments[0]}" --dns dns_cf \
         --key-file /etc/letsencrypt/live/${arguments[0]}/privkey.pem \
         --fullchain-file /etc/letsencrypt/live/${arguments[0]}/fullchain.pem --force`)
 
