@@ -9,7 +9,7 @@ ex();
 
 // ? VERSION
 const gen = 'stable' // stable, beta
-const version = `${gen}-v1.4.13`
+const version = `${gen}-v1.4.13.2`
 // ? ###
 
 const l = require('./logs');
@@ -104,6 +104,7 @@ client.on('ready', async () => {
     readCommands('commands')
 
     status()
+    setInterval(status, 1000*15)
 })
 
 var statusId = 0;
@@ -125,8 +126,6 @@ function status(){
             name: statusText,
         },
     });
-
-    setInterval(status, 1000*15)
 }
 
 client.login(config.token)
