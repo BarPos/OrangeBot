@@ -9,7 +9,7 @@ ex();
 
 // ? VERSION
 const gen = 'stable' // stable, beta
-const version = `${gen}-v1.4.12`
+const version = `${gen}-v1.4.13`
 // ? ###
 
 const l = require('./logs');
@@ -103,19 +103,30 @@ client.on('ready', async () => {
 
     readCommands('commands')
 
+    status()
+})
+
+var statusId = 0;
+
+function status(){
+
+    const statuses = [
+        {"text":"%PREFIX%help | %VERSION%"},
+        {"text":"%GUILDS% guilds | %VERSION%"},
+        {"text":"%USERS% users | %VERSION%"},
+    ]
+    //console.log(statusId, statuses.length)
+    const statusText = statuses[statusId].text.replace(`%PREFIX%`, config.prefix).replace(`%VERSION%`, version).replace(`%GUILDS%`, client.guilds.cache.size).replace(`%USERS%`, client.users.cache.size);
+    statusId++
+    if(statusId >= statuses.length) statusId = 0;
+
     client.user.setPresence({
         activity: {
-            name: `${config.prefix}help | ${version}`,
+            name: statusText,
         },
     });
 
-    setInterval(() => {
-        client.user.setPresence({
-            activity: {
-                name: `${config.prefix}help | ${version}`,
-            },
-        });
-    }, 1000*60*30)
-})
+    setInterval(status, 1000*15)
+}
 
 client.login(config.token)
