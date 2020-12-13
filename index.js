@@ -47,12 +47,15 @@ async function updatee(json, p){
     .then(msg => {
         m = msg.first();
         var updateText = json.log;
+        var eventTitle = ''
 
         if(json.restart && json.restart == true){
             updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly restarted.**`
+            eventTitle = `${emoji('785598322768871495')} Update`
         }
         else{
             updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly updated from** \`${json.oldVer}\` **to** \`${version}\``
+            eventTitle = `${emoji('786219619378921523')} Restart`
         }
 
         const replacer = new RegExp(`<br>`, 'g')
@@ -61,7 +64,7 @@ async function updatee(json, p){
         //console.log(updateText.replace(replacer,`\n`))
 
         const embed = new Discord.MessageEmbed()
-            .setTitle(`${emoji('785598322768871495')} Update`)
+            .setTitle(eventTitle)
             .setColor(config.color)
             .setDescription(updateText.replace(replacer,`\n`))
             .setTimestamp()
