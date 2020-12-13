@@ -51,11 +51,11 @@ async function updatee(json, p){
 
         if(json.restart && json.restart == true){
             updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly restarted.**`
-            eventTitle = `${emoji('785598322768871495')} Update`
+            eventTitle = `${emoji('786219619378921523')} Restart`
         }
         else{
             updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly updated from** \`${json.oldVer}\` **to** \`${version}\``
-            eventTitle = `${emoji('786219619378921523')} Restart`
+            eventTitle = `${emoji('785598322768871495')} Update`
         }
 
         const replacer = new RegExp(`<br>`, 'g')
