@@ -81,7 +81,8 @@ module.exports = {
             "channel":"${m.channel.id}",
             "guild":"${m.guild.id}",
             "message":"${m.id}",
-            "log":"${updateText.replace(/(\r\n|\n|\r)/gm,`<br>`)}"
+            "log":"${updateText.replace(/(\r\n|\n|\r)/gm,`<br>`)}",
+            "restart":false
         }`
 
         // (/(\r\n|\n|\r)/gm,"<br>")

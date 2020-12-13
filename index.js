@@ -9,7 +9,7 @@ ex();
 
 // ? VERSION
 const gen = 'stable' // stable, beta
-const version = `${gen}-v1.4.13.2`
+const version = `${gen}-v1.4.13.3`
 // ? ###
 
 const l = require('./logs');
@@ -48,7 +48,12 @@ async function updatee(json, p){
         m = msg.first();
         var updateText = json.log;
 
-        updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly updated from** \`${json.oldVer}\` **to** \`${version}\``
+        if(json.restart && json.restart == true){
+            updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly restarted.`
+        }
+        else{
+            updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly updated from** \`${json.oldVer}\` **to** \`${version}\``
+        }
 
         const replacer = new RegExp(`<br>`, 'g')
 
