@@ -26,6 +26,7 @@ module.exports = {
         message.channel.send(embed)
     },
     permissions: 'ADMINISTRATOR',
+    botPermissions: ['SEND_MESSAGES'],
     //requiredRoles: [],
     //allowedUsers: ''
   }

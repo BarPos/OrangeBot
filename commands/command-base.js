@@ -49,10 +49,11 @@ module.exports = (client, commandOptions) => {
     let {
         commands,
         expectedArgs = '',
-        permissionError = 'You do not have permission to run this command.',
+        permissionError = 'You need %PERMISSION% permission to run this command.',
         minArgs = 0,
         maxArgs = null,
         permissions = [],
+        botPermissions = [],
         requiredRoles = [],
         allowedUsers = null,
         callback,
@@ -73,6 +74,15 @@ module.exports = (client, commandOptions) => {
 
         validatePermissions(permissions)
     }
+    if(botPermissions.length) {
+        if (typeof botPermissions === 'string') {
+            botPermissions = [botPermissions]
+        }
+
+        validatePermissions(botPermissions)
+    }else{
+        botPermissions = permissions;
+    }
 
     // Ensure the allowedUsers are in an array
     if(allowedUsers !== null){
@@ -84,7 +94,7 @@ module.exports = (client, commandOptions) => {
     }
 
     // Listen for messages
-    client.on('message', (message) => {
+    client.on('message', async (message) => {
         const { member, content, guild } = message
 
         for (const alias of commands) {
@@ -100,7 +110,7 @@ module.exports = (client, commandOptions) => {
                 for (const permission of permissions) {
                     if (!member.hasPermission(permission)) {
                         if(member.user.id !== '437992463165161472'){
-                            message.reply(permissionError)
+                            message.reply(permissionError.replace(`%PERMISSION%`, permission))
                             return
                         }
                     }
@@ -117,17 +127,16 @@ module.exports = (client, commandOptions) => {
                 }
 
                 const bot = message.guild.members.cache.get(client.user.id);
-                permissions.forEach(p => {
+                await botPermissions.forEach(async (p) => {
                     if(!bot.hasPermission(p)){
-                        const embed = new Discord.MessageEmbed()
+                        const embed = await new Discord.MessageEmbed()
                             .setColor(config.color)
                             .setTitle(`I'm missing \`${p}\` permission!`)
                             .setDescription('You have to give me this permission to do that. You can give me admin perms so you don\'t need to do this in the future (tutorial below).')
                             .setImage('https://i.imgur.com/sfHXq9b.png')
                             .setFooter('Please contact server administrator and ask to fix it.')
                             .setTimestamp()
-                        message.channel.send(embed)
-                        return
+                        return await message.channel.send(embed)
                     }
                 });
 

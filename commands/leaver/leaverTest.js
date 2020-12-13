@@ -12,6 +12,7 @@ module.exports = {
         client.emit("guildMemberRemove", message.member);
     },
     permissions: 'ADMINISTRATOR',
+    botPermissions: ['SEND_MESSAGES'],
     //requiredRoles: [],
     //allowedUsers: ''
   }

@@ -18,6 +18,7 @@ module.exports = {
         message.channel.send(`Welcome message set to \`${s.message}\``)
     },
     permissions: 'ADMINISTRATOR',
+    botPermissions: ['SEND_MESSAGES'],
     //requiredRoles: [],
     //allowedUsers: ''
   }

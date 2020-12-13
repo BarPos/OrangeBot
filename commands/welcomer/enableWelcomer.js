@@ -38,6 +38,7 @@ module.exports = {
         }
     },
     permissions: 'ADMINISTRATOR',
+    botPermissions: ['SEND_MESSAGES'],
     //requiredRoles: [],
     //allowedUsers: ''
   }
