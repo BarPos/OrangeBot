@@ -49,7 +49,7 @@ async function updatee(json, p){
         var updateText = json.log;
 
         if(json.restart && json.restart == true){
-            updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly restarted.`
+            updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly restarted.**`
         }
         else{
             updateText = updateText + `\n\n\n${emoji('785612264727379988')} **Successfuly updated from** \`${json.oldVer}\` **to** \`${version}\``
