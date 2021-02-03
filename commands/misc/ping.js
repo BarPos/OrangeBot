@@ -8,14 +8,19 @@ module.exports = {
     minArgs: 0,
     maxArgs: 0,
     callback: async (message, arguments, text, client) => {
-        message.channel.send('Calculating ping...').then(resultMessage => {
+        const embed1 = new Discord.MessageEmbed()
+                .setAuthor(`Ping`, client.user.displayAvatarURL())
+                .setColor(config.color)
+                .setDescription(`Calculating ping...`)
+                .setTimestamp()
+        message.channel.send(embed1).then(resultMessage => {
             const ping = resultMessage.createdTimestamp - message.createdTimestamp;
             const embed = new Discord.MessageEmbed()
                 .setAuthor(`Ping`, client.user.displayAvatarURL())
                 .setColor(config.color)
                 .setDescription(`Bot Latency: ${ping}ms, API Latency: ${client.ws.ping}ms`)
                 .setTimestamp()
-            resultMessage.edit(`` + embed)
+            resultMessage.edit(embed)
             // resultMessage.edit(embed)
         });
     },

@@ -12,7 +12,11 @@ module.exports = {
         //console.log(`https://api.mojang.com/users/profiles/minecraft/${arguments[0]}?at=${Math.floor(+new Date() / 1000)}`)
 
         var response;
-        message.channel.send('Loading...').then(resultMessage => {
+        const embed1 = new MessageEmbed()
+            .setColor(config.color)
+            .setAuthor(`Loading...`)
+            .setTimestamp();
+        message.channel.send(embed1).then(resultMessage => {
             https.get(`https://api.mojang.com/users/profiles/minecraft/${arguments[0]}?at=${Math.floor(+new Date() / 1000)}`, (resp) => {
                 let data = '';
 
@@ -42,7 +46,7 @@ module.exports = {
                             .setAuthor(`\`${arguments[0]}\` is not a valid Minecraft nickname`)
                             .setTimestamp();
 
-                        resultMessage.edit(`Done`)
+                        // resultMessage.edit(`Done`)
                         resultMessage.edit(embed)
                     }
 
