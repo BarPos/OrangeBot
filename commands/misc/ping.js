@@ -1,3 +1,5 @@
+const {client, Discord} = require('../../index');
+
 module.exports = {
     commands: 'ping',
     //expectedArgs: '',
