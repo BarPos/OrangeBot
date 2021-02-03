@@ -7,7 +7,13 @@ module.exports = {
     callback: async (message, arguments, text, client) => {
         message.channel.send('Calculating ping...').then(resultMessage => {
             const ping = resultMessage.createdTimestamp - message.createdTimestamp;
-            resultMessage.edit(`Bot Latency: ${ping}ms, API Latency: ${client.ws.ping}ms`)
+            const embed = new Discord.MessageEmbed()
+                .setAuthor(`Ping`, client.user.displayAvatarURL())
+                .setColor(config.color)
+                .setDescription(`Bot Latency: ${ping}ms, API Latency: ${client.ws.ping}ms`)
+                .setTimestamp()
+            resultMessage.edit(`Done`)
+            resultMessage.edit(embed)
         });
     },
     //permissions: '',
