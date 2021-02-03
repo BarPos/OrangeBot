@@ -1,4 +1,5 @@
 const {client, Discord} = require('../../index');
+const config = require('../../config.json')
 
 module.exports = {
     commands: 'ping',
