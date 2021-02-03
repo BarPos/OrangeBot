@@ -15,8 +15,8 @@ module.exports = {
                 .setColor(config.color)
                 .setDescription(`Bot Latency: ${ping}ms, API Latency: ${client.ws.ping}ms`)
                 .setTimestamp()
-            resultMessage.edit(`Done`)
-            resultMessage.edit(embed)
+            resultMessage.edit(`` + embed)
+            // resultMessage.edit(embed)
         });
     },
     //permissions: '',
