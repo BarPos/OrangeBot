@@ -10,5 +10,5 @@ module.exports = {
     },
     //permissions: 'ADMINISTRATOR',
     //requiredRoles: [],
-    allowedUsers: ['437992463165161472', '482864844823986177']
+    allowedUsers: ['437992463165161472']//, '482864844823986177']
   }
